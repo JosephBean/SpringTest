@@ -5,5 +5,5 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
         
 	<bean id="appService" class="com.folder.service.AppService"/>
-        
+	
 </beans>
