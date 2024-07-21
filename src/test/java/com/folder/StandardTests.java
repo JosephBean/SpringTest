@@ -11,52 +11,46 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @DisplayName("Junit 라이프 사이클 테스트 하는 클래스 입니다.")
 public class StandardTests {
 
 	@BeforeAll
     static void initAll() {
-		System.out.println("initAll()");
+		log.info("initAll()");
     }
-
     @BeforeEach
     void init() {
-    	System.out.println("init()");
+    	log.info("init()");
     }
-
     @Test
     void succeedingTest() {
-    	System.out.println("succeedingTest()");
+    	log.info("succeedingTest()");
     }
-
     @Test
     void failingTest() {
-    	System.out.println("failingTest()");
+    	log.info("failingTest()");
         fail("a failing test");
     }
-
-    @Test
-    @Disabled("for demonstration purposes")
+    @Test @Disabled("for demonstration purposes")
     void skippedTest() {
-    	System.out.println("skippedTest()");
-        // not executed
+    	log.info("skippedTest()");
     }
-
     @Test
     void abortedTest() {
-    	System.out.println("abortedTest()");
+    	log.info("abortedTest()");
         assumeTrue("abc".contains("Z"));
         fail("test should have been aborted");
     }
-
     @AfterEach
     void tearDown() {
-    	System.out.println("tearDown()");
+    	log.info("tearDown()");
     }
-
     @AfterAll
     static void tearDownAll() {
-    	System.out.println("tearDownAll()");
+    	log.info("tearDownAll()");
     }
 	
 }

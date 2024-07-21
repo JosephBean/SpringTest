@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(OrderAnnotation.class)
-public class AppTest {
+public class AppMethodTest {
 
 	@Test @Order(2)
 	void test3() {
