@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 //@ExtendWith(SpringExtension.class)
 //@Import(TestController.class)
-@WebMvcTest({TestController.class, TestDataController.class})
+@WebMvcTest({TestController.class, TestDataController.class, ViewController.class})
 public class TestControllerTest {
 
 	@Autowired
@@ -43,6 +43,11 @@ public class TestControllerTest {
 	private ObjectMapper object;
 	
 	@Test
+	void test5() throws Exception {
+		mvc.perform(get("/detail/{no:[0-9]+}", "1A").accept(MediaType.APPLICATION_JSON));
+	}
+	
+	@Test @Disabled
 	void test4() throws Exception {
 		Map map = new HashMap<>();
 		map.put("name", "홍길동");
